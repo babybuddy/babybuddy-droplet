@@ -1,0 +1,19 @@
+{
+  "name": "babybuddy-droplet",
+  "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
+  "features": {
+    "ghcr.io/devcontainers-contrib/features/digitalocean-cli:1": {},
+    "ghcr.io/devcontainers-contrib/features/packer-asdf:2": {}
+  },
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "timonwong.shellcheck"
+      ],
+      "settings": {
+        "terminal.integrated.defaultProfile.linux": "zsh"
+      }
+    }
+  },
+  "postCreateCommand": "packer plugins install github.com/digitalocean/digitalocean"
+}

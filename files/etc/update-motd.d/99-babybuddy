@@ -1,0 +1,39 @@
+#!/bin/sh
+#
+# Configured as part of the DigitalOcean 1-Click Image build process
+
+# Read in the secrets.
+. /root/.secrets
+
+myip=$(hostname -I | awk '{print$1}')
+cat <<EOF
+********************************************************************************
+
+Welcome to DigitalOcean's 1-Click Baby Buddy Droplet.
+To keep this Droplet secure, the UFW firewall is enabled.
+All ports are BLOCKED except 22 (SSH), 80 (HTTP), and 443 (HTTPS).
+
+Baby Buddy crdentials:
+    URL: http://${myip}/
+    User: admin
+    Pass: admin
+
+SFTP/SSH credentials:
+    Host: ${myip}
+    User: ${BABYBUDDY_USER}
+    Pass: ${BABYBUDDY_USER_PASSWORD}
+
+In a web browser, you can view:
+ * The Baby Buddy application: http://$myip
+ * Baby Buddy's documentation: https://docs.baby-buddy.net/
+ * Baby Buddy's source code: https://github.com/babybuddy/babybuddy
+
+On the server:
+  * Baby Buddy is served from /var/www/babybuddy
+  * Baby Buddy secrets are saved in /root/.secrets
+  * Baby Buddy configuration is location at /var/www/babybuddy/public/babybuddy/settings/droplet.py
+  * Certbot is preinstalled. Run it to configure HTTPS.
+
+********************************************************************************
+To delete this message of the day: rm -rf $(readlink -f ${0})
+EOF

@@ -1,0 +1,18 @@
+upstream babybuddy {
+ server unix:///var/run/uwsgi/app/babybuddy/socket;
+}
+
+server {
+ listen 80 default_server;
+ listen [::]:80 default_server ipv6only=on;
+ server_name _;
+
+ location / {
+    uwsgi_pass babybuddy;
+    include uwsgi_params;
+ }
+
+ location /media {
+    alias /var/www/babybuddy/data/media;
+ }
+}
