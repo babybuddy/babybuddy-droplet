@@ -2,8 +2,10 @@
   "name": "babybuddy-droplet",
   "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
   "features": {
-    "ghcr.io/devcontainers-contrib/features/digitalocean-cli:1": {},
-    "ghcr.io/devcontainers-contrib/features/packer-asdf:2": {}
+    "ghcr.io/devcontainers-extra/features/digitalocean-cli:1": {
+      "version": "1.142.0"
+    },
+    "ghcr.io/devcontainers-extra/features/packer-asdf:2": {}
   },
   "customizations": {
     "vscode": {

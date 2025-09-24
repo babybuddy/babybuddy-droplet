@@ -12,7 +12,11 @@ Configuration and settings are based on [Digital Ocean's Django 1-click droplet 
 
 3. Set the [branch](https://github.com/babybuddy/babybuddy/branches/all) or [tag](https://github.com/babybuddy/babybuddy/tags) name to use for the build in [marketplace-image.json](./marketplace-image.json) under `variables.branch_or_tag`
 
-4. Run `packer build marketplace-image.json`
+5. Run `make update-scripts`
+
+6. Run `make validate`
+
+7. Run `make`
 
 ## Troubleshooting
 
