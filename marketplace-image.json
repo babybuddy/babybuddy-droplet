@@ -2,7 +2,7 @@
 {
   "variables": {
     "apt_packages": "git libopenjp2-7-dev libpq-dev nginx pipx python3 python3-certbot python3-certbot-nginx python3-pip uwsgi uwsgi-plugin-python3",
-    "branch_or_tag": "v2.7.1",
+    "branch_or_tag": "v2.8.0",
     "do_api_token": "{{env `DIGITALOCEAN_TOKEN`}}",
     "image_name": "babybuddy-snapshot-{{timestamp}}"
   },
