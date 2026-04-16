@@ -525,6 +525,9 @@ elif [[ "$OS" =~ Debian.* ]]; then
         12)
             osv=1
             ;;
+        13)
+            osv=1
+            ;;
         *)
             osv=2
             ;;
@@ -618,6 +621,12 @@ checkRoot
 
 checkAgent
 
+# Source GPU compatibility check
+if [ -f "$(dirname "$0")/check_gpu_support.sh" ]; then
+    source "$(dirname "$0")/check_gpu_support.sh"
+else
+    echo "GPU check script not found. Skipping GPU compatibility checks."
+fi
 
 # Summary
 echo -en "\n\n---------------------------------------------------------------------------------------------------\n"
